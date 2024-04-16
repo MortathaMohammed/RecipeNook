@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/cat2.jpeg",
+      "PackagePath": "staticwebassets/images/cat2.jpeg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/photo_2024-04-12_03-05-36.jpg",
+      "PackagePath": "staticwebassets/images/photo_2024-04-12_03-05-36.jpg"
+    },
+    {
       "Id": "/home/mdrazor/program/RecipeNook/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

@@ -111,3 +111,4 @@
 /home/mdrazor/program/RecipeNook/obj/Debug/net8.0/RecipeNook.csproj.AssemblyReference.cache
 /home/mdrazor/program/RecipeNook/obj/Debug/net8.0/RecipeNook.MvcApplicationPartsAssemblyInfo.cs
 /home/mdrazor/program/RecipeNook/obj/Debug/net8.0/RecipeNook.csproj.Up2Date
+/home/mdrazor/program/RecipeNook/obj/Debug/net8.0/RecipeNook.sourcelink.json

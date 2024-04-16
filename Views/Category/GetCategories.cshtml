@@ -1,0 +1,23 @@
+@model List<Category>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<p>
+    <a asp-asp-controller="Category" asp-action="CreateCategory" class="btn btn-primary">Create Category</a>
+</p>
+
+<div class="d-inline-block">
+    @foreach (var item in Model)
+    {
+        <div class="card mt-3 mb-3 mx-3 d-inline-block ">
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+
+                <a class="btn btn-info" asp-action="EditCategory" asp-route-id="@item.Id">Edit</a>
+
+                <a class="btn btn-warning" asp-action="DeleteCategory" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>

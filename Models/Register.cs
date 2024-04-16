@@ -1,8 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
-
 namespace RecipeNook.Models;
+
 public class Register
 {
     [Required]
