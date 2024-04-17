@@ -21,8 +21,24 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/18.2eff46578ff9c7420940cf51f06004468ec1.jpg",
-      "PackagePath": "staticwebassets/images/18.2eff46578ff9c7420940cf51f06004468ec1.jpg"
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/1330b0f611734d39abc6738e1aa1c5be_Good_Food.jpg",
+      "PackagePath": "staticwebassets/images/1330b0f611734d39abc6738e1aa1c5be_Good_Food.jpg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/15.jpg",
+      "PackagePath": "staticwebassets/images/15.jpg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/20150924144216-mediterranean-salad.jpeg",
+      "PackagePath": "staticwebassets/images/20150924144216-mediterranean-salad.jpeg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/25353376.jpg",
+      "PackagePath": "staticwebassets/images/25353376.jpg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/BVREasterDelivery-960x640.jpg",
+      "PackagePath": "staticwebassets/images/BVREasterDelivery-960x640.jpg"
     },
     {
       "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/Cat_August.jpg",
@@ -37,8 +53,16 @@
       "PackagePath": "staticwebassets/images/cat2.jpeg"
     },
     {
-      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/newDog2.jpg",
-      "PackagePath": "staticwebassets/images/newDog2.jpg"
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/dinner-meal-type.jpg",
+      "PackagePath": "staticwebassets/images/dinner-meal-type.jpg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/magic-foods.jpg",
+      "PackagePath": "staticwebassets/images/magic-foods.jpg"
+    },
+    {
+      "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/pexels-photo-5017830.jpeg",
+      "PackagePath": "staticwebassets/images/pexels-photo-5017830.jpeg"
     },
     {
       "Id": "/home/mdrazor/program/RecipeNook/wwwroot/images/photo_2024-04-12_03-05-36.jpg",
