@@ -4,25 +4,34 @@
     ViewData["Title"] = "DeleteCategory";
 }
 
-<h1>DeleteCategory</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
-    </dl>
+<h3 class="mt-5 mx-5">Are you sure you want to delete this?</h3>
 
-    <form asp-action="DeleteCategory" enctype="multipart/form-data">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
-    </form>
+<hr />
+<div class="row mx-5 mt-5 mb-5">
+    <div class="col-md-6 mt-3">
+        <img src="~/images/@Model.ImageUrl" width="100%" height="100%" class="img-thumbnail" />
+    </div>
+    <div class="col-md-6">
+        <form asp-action="DeleteCategory" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mt-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input readonly asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn btn-secondary" asp-action="GetCategories">Back to List</a>
+            </div>
+        </form>
+    </div>
+
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

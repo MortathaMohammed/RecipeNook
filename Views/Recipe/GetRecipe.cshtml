@@ -3,23 +3,30 @@
     ViewData["Title"] = "Recipe";
 }
 
-<div class="card mb-3">
-    <h3 class="card-header">@Model.Name</h3>
-    <div class="card-body">
-        <p class="card-subtitle text-muted">@Model.Description</p>
+<div class=" mx-5 mt-5 mb-5">
+    <h1 class="card-header">@Model.Name</h1>
+    <div class="card-body mt-5">
+        <p class="card-subtitle text-muted ">@Model.Description</p>
     </div>
-    <img src="~/images/@Model.ImageUrl" alt="" class="d-block user-select-none" width="100%" height="100%"
+    <img src="~/images/@Model.ImageUrl" alt="" class=" user-select-none mt-5" width="50%" height="480px"
         aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice"
         viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-    <div class="card-body">
-        <p class="card-text">@Model.Description.</p>
-        <p class="card-text">@Model.Directions.</p>
+    <div class="card-body mt-5">
+        <h2>Ingredients</h2>
         <p class="card-text">@Model.Ingredients.</p>
+        <h2>Directions</h2>
+        <p class="card-text">@Model.Directions.</p>
+
     </div>
+    <hr>
     <div class="card-body">
 
-        <a class="btn btn-info" asp-action="EditRecipe" asp-route-id="@Model.Id">Edit</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="btn btn-info  col-md-2" asp-action="EditRecipe" asp-route-id="@Model.Id">Edit</a>
 
-        <a class="btn btn-warning" asp-action="DeleteRecipe" asp-route-id="@Model.Id">Delete</a>
+            <a class="btn btn-warning mx-4 my-2 col-md-2" asp-action="DeleteRecipe" asp-route-id="@Model.Id">Delete</a>
+
+        }
     </div>
 </div>

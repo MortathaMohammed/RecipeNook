@@ -21,6 +21,7 @@ public class HomeController : Controller
     {
         var categories = await _dbContext.Categories.ToListAsync();
         var recipes = await _dbContext.Recipes.ToListAsync();
+
         return View(new { Recipe = recipes, Category = categories });
     }
 
@@ -30,7 +31,7 @@ public class HomeController : Controller
         return View(categories);
     }
 
-    public IActionResult Privacy()
+    public IActionResult About()
     {
         return View();
     }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,8 @@ using RecipeNook.Models;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace RecipeNook.Controllers;
+
+
 public class RecipeController : Controller
 {
     private readonly AppDbContext _dbContext;
@@ -18,11 +21,19 @@ public class RecipeController : Controller
 
     public async Task<IActionResult> GetRecipeByCategoryId(int id)
     {
-        var recipes = await _dbContext.Recipes.Include(c => c.CategoryId == id).Where(c => c.CategoryId == id).ToListAsync();
-        ViewBag.Name = _dbContext.Categories.Find(id).Name.ToString();
+        var recipes = await _dbContext.Recipes.Include(c => c.Category).Where(c => c.CategoryId == id).ToListAsync();
         return View(recipes);
     }
 
+    public async Task<IActionResult> GetRecipeByName(string search)
+    {
+        var recipes = await _dbContext.Recipes.ToListAsync();
+        if (!String.IsNullOrEmpty(search))
+        {
+            recipes = recipes.Where(n => n.Name!.Contains(search)).ToList();
+        }
+        return View(recipes);
+    }
     public async Task<IActionResult> GetRecipes()
     {
         var recipes = await _dbContext.Recipes.ToListAsync();
@@ -33,13 +44,13 @@ public class RecipeController : Controller
         var recipe = await _dbContext.Recipes.FirstOrDefaultAsync(x => x.Id == id);
         return View(recipe);
     }
-
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateRecipe()
     {
         ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "Name");
         return View();
     }
-
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> CreateRecipe(Recipe recipe)
     {
@@ -60,14 +71,14 @@ public class RecipeController : Controller
         await _dbContext.SaveChangesAsync();
         return RedirectToAction("Index", "Home");
     }
-
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> EditRecipe(int id)
     {
         var recipe = await _dbContext.Recipes.FirstOrDefaultAsync(r => r.Id == id);
         ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "Name");
         return View(recipe);
     }
-
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> EditRecipe(Recipe recipe)
     {
@@ -88,7 +99,7 @@ public class RecipeController : Controller
             recipe.Image.CopyTo(new FileStream(imagepath, FileMode.Create));
         }
 
-        var oldRecipe = _dbContext.Recipes.FirstOrDefault(a => a.Id == recipe.Id);
+        var oldRecipe = await _dbContext.Recipes.FirstOrDefaultAsync(a => a.Id == recipe.Id);
 
         oldRecipe.Name = recipe.Name;
         oldRecipe.Description = recipe.Description;
@@ -101,15 +112,15 @@ public class RecipeController : Controller
         return RedirectToAction("GetRecipeByCategoryId", "Recipe", new { id = recipe.CategoryId });
 
     }
-
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteRecipe(int id)
     {
         var recipe = await _dbContext.Recipes.FirstOrDefaultAsync(c => c.Id == id);
         return View(recipe);
     }
-
+    [Authorize(Roles = "Admin")]
     [HttpPost]
-    public async Task<IActionResult> DeleteAnimal(Recipe recipe)
+    public async Task<IActionResult> DeleteRecipe(Recipe recipe)
     {
         string ImageFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
 
@@ -121,9 +132,9 @@ public class RecipeController : Controller
 
 
 
-        var Drecipe = _dbContext.Recipes.FirstOrDefault(c => c.Id == recipe.Id);
+        var Drecipe = await _dbContext.Recipes.FirstOrDefaultAsync(c => c.Id == recipe.Id);
 
-        _dbContext.Remove(Drecipe);
+        _dbContext.Recipes.Remove(Drecipe);
         await _dbContext.SaveChangesAsync();
         return RedirectToAction("GetRecipeByCategoryId", "Recipe", new { id = recipe.CategoryId });
     }
