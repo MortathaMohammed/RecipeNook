@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecipeNook")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b54cf05dc9258d63eeaf6267730e7365ab9b7dca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a93624da170165a0f459916a4988dd69acef7661")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecipeNook")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecipeNook")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

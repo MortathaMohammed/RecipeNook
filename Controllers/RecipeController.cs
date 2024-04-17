@@ -86,7 +86,7 @@ public class RecipeController : Controller
         string imagepath = Path.Combine(ImageFolder, recipe.Image.FileName);
 
 
-        var oldImage = _dbContext.Recipes.Find(recipe.Id).ImageUrl;
+        var oldImage = _dbContext.Recipes.Find(recipe.Id)!.ImageUrl;
         var ImageOldPath = Path.Combine(ImageFolder, oldImage);
         recipe.ImageUrl = recipe.Image.FileName;
 
@@ -124,7 +124,7 @@ public class RecipeController : Controller
     {
         string ImageFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
 
-        var oldImage = _dbContext.Recipes.Find(recipe.Id).ImageUrl;
+        var oldImage = _dbContext.Recipes.Find(recipe.Id)!.ImageUrl;
         var ImageOldPath = Path.Combine(ImageFolder, oldImage);
 
         // Delete Old File

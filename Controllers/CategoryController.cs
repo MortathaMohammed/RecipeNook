@@ -68,7 +68,7 @@ public class CategoryController : Controller
         string ImageFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
         string imagepath = Path.Combine(ImageFolder, category.Image.FileName);
 
-        var oldImage = _dbContext.Categories.Find(category.Id).ImageUrl;
+        var oldImage = _dbContext.Categories.Find(category.Id)!.ImageUrl;
         var ImageOldPath = Path.Combine(ImageFolder, oldImage);
         category.ImageUrl = category.Image.FileName;
 
@@ -103,7 +103,7 @@ public class CategoryController : Controller
     {
         string ImageFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
 
-        var oldImage = _dbContext.Categories.Find(category.Id).ImageUrl;
+        var oldImage = _dbContext.Categories.Find(category.Id)!.ImageUrl;
         var ImageOldPath = Path.Combine(ImageFolder, oldImage);
 
         // Delete Old File
@@ -112,6 +112,6 @@ public class CategoryController : Controller
 
         _dbContext.Categories.Remove(Dcategory);
         await _dbContext.SaveChangesAsync();
-        return RedirectToAction("GetCategories", "Category");
+        return RedirectToAction(nameof(GetCategories));
     }
 }
